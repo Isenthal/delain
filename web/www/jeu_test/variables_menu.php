@@ -647,29 +647,5 @@ if ($is_vampire != 0)
     <?php
 }
 
-//
-// gestion des vote
-// 
-$cv           = new compte_vote();
-$totalXpGagne = 0;
-$tab          = $cv->getBy_compte_vote_compte_cod($compte->compt_cod);
-if (count($tab) > 0)
-{
-    $totalXpGagne = $tab[0]->compte_vote_total_px_gagner;
-}
 
-
-$cvip    = new compte_vote_ip();
-$tab     = $cvip->getByCompteTrue($compte->compt_cod);
-$nbrVote = count($tab);
-
-
-$tab         = $cvip->getByCompteTrueMois($compte->compt_cod);
-$nbrVoteMois = count($tab);
-
-$tab          = $cvip->getVoteAValider($compte->compt_cod);
-$VoteAValider = count($tab);
-
-$tab          = $cvip->getVoteRefus($compte->compt_cod);
-$votesRefusee = count($tab);
 ?>
