@@ -95,6 +95,11 @@ a:hover {
     padding: 3px 0px;
 }
 
+.menu_gauche{
+    padding-left:10px;
+    padding-right:10px;
+}
+
 .groupdiv_nopadding {
     background-image:url('../../images/fondparchemin.gif');
     border-color: #800000;

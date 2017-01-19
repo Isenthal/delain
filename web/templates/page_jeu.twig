@@ -3,7 +3,7 @@
 {% block sidebar %}
     <div class="groupdiv groupdiv_gauche">
         <div class="titre">{{ PERSO.perso_nom }}</div>
-        <br />
+        <br/>
 
         <div style="text-align:center;">
             {% if PERSO.isIntangible %}
@@ -22,14 +22,31 @@
                 X : <b>{{ VARIABLES_MENU.PERSO_POS_X }}</b> Y : <b>{{ VARIABLES_MENU.PERSO_POS_Y }}</b><br/>
                 <b><a href="desc_etage.php"><img alt="" src="/images/iconmap.gif"
                                                  style="height:12px;border:0px;"/>{{ VARIABLES_MENU.PERSO_ETAGE }}</a></b></span>
-            <hr/>
+        </div>
+        <br />
+        <div class="menu_gauche">
             {% if VARIABLES_MENU.PASSAGE_NIVEAU %}
                 <div id="passageniveau">
-                    <a href="niveau.php"><b>Passer au niveau supérieur ! </b>(6 PA)</a><br /><hr />
+                    <a href="niveau.php"><b>Passer au niveau supérieur ! </b>(6 PA)</a><br/>
+                    <hr/>
                 </div>
             {% endif %}
-            <div id="quete">{PERSO_QUETE}</div>
-            <div id="lieu">{PERSO_LIEU}</div>
+            {% if  VARIABLES_MENU.PERSO_QUETE %}
+                <div id="quete"><a href="quete_perso.php"><b>Quête</b></a>
+                    <hr/>
+                </div>
+            {% endif %}
+            {% if  VARIABLES_MENU.PERSO_LIEU %}
+                <div id="lieu"><a href="lieu.php"><b>{{ VARIABLES_MENU.NOM_LIEU }}</b> ({{ VARIABLES_MENU.LIB_LIEU }}
+                        )</a>
+                    <hr/>
+                </div>
+            {% endif %}
+            <img src="{{ URL_IMAGES }}ficheperso.gif" alt=""> <a href="perso2.php">Fiche de perso</a><br>
+            <img src="{{ URL_IMAGES }}vue.gif" alt=""> <b><a href="frame_vue.php">Vue</a></b><br>
+            <img src="{{ URL_IMAGES }}evenements.gif" alt=""> <a href="evenements.php">Événements</a><br>
+            <hr/>
         </div>
+
     </div>
 {% endblock %}

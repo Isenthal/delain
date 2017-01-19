@@ -219,10 +219,12 @@ $t->set_var('PASSAGE_NIVEAU', $passage_niveau);
 if ($perso->is_perso_quete())
 {
     $perso_quete = "<a href=\"$chemin/quete_perso.php\"><b>Quête</b></a><hr />";
+    $variables_menu['PERSO_QUETE'] = true;
 }
 else
 {
     $perso_quete = '';
+    $variables_menu['PERSO_QUETE'] = false;
 }
 $t->set_var('PERSO_QUETE', $perso_quete);
 
@@ -238,6 +240,9 @@ if ($perso->is_lieu())
         $libelle    = $tab_lieu['lieu_type']->tlieu_libelle;
         $perso_lieu = "<a href=\"$chemin/lieu.php\"><b>" . $nom_lieu  . "</b> (" . $libelle . ")</a><hr />";
     }
+    $variables_menu['PERSO_LIEU'] = true;
+    $variables_menu['NOM_LIEU'] = $tab_lieu['lieu']->lieu_nom;
+    $variables_menu['LIB_LIEU'] = $tab_lieu['lieu_type']->tlieu_libelle;
 }
 $t->set_var('PERSO_LIEU', $perso_lieu);
 
