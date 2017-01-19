@@ -66,119 +66,122 @@
         <div class="col-lg-2 col-md-3 col-sm-4">
             <div class="sidebar-nav">
                 <div class="navbar navbar-default" role="navigation">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target=".sidebar-navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <span class="visible-xs navbar-brand">Menu</span>
-                    </div>
-                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
-                        <div class="visible-md visible-lg visible-sm hidden-xs ">
-                            {% set origineBlockAuth = 'groupdiv_gauche' %}
-                            {% set styleUl = '' %}
-                            {% include "blockAuth.twig" %}
+                    {% block sidebar %}
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                    data-target=".sidebar-navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="visible-xs navbar-brand">Menu</span>
                         </div>
-                        <div class="groupdiv groupdiv_gauche">
-                            <div class="titre">Menu</div>
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <a href="index.php">Accueil</a>
-                                </li>
-                                <li>
-                                    <a href="http://forum.jdr-delain.net" target="_blank">Forum</a>
-                                </li>
-                                <hr/>
-                                <li>
-                                    <a href="http://www.jdr-delain.net/wiki/index.php/Histoire" target="droite">L’histoire</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.chez.com/delain/" target="_blank">le commencement</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.jdr-delain.net/voix/" target="_blank">La Gazette</a>
-                                </li>
-                                <hr/>
-                                <li>
-                                    <a href="http://wiki.jdr-delain.net/index.php/R%C3%A8gles" target="_blank">Les
-                                        règles</a>
-                                </li>
-                                <li>
-                                    <a href="faq_v2.php">FAQ</a>
-                                </li>
-                                <li>
-                                    <a href="http://wiki.jdr-delain.net/" target="_blank">Wiki</a>
-                                </li>
-                                <li>
+                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                            <div class="visible-md visible-lg visible-sm hidden-xs ">
+                                {% set origineBlockAuth = 'groupdiv_gauche' %}
+                                {% set styleUl = '' %}
+                                {% include "blockAuth.twig" %}
+                            </div>
+                            <div class="groupdiv groupdiv_gauche">
+                                <div class="titre">Menu</div>
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        <a href="index.php">Accueil</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://forum.jdr-delain.net" target="_blank">Forum</a>
+                                    </li>
                                     <hr/>
-                                    <a href="classement_v2.php">Classement Joueurs</a>
-                                </li>
-                                <li>
-                                    <a href="champions.php" target="_blank">Les champions</a>
-                                </li>
-                                <li>
-                                    <a href="statistiques_v2.php">Statistiques</a>
-                                </li>
+                                    <li>
+                                        <a href="http://www.jdr-delain.net/wiki/index.php/Histoire" target="droite">L’histoire</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.chez.com/delain/" target="_blank">le commencement</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.jdr-delain.net/voix/" target="_blank">La Gazette</a>
+                                    </li>
+                                    <hr/>
+                                    <li>
+                                        <a href="http://wiki.jdr-delain.net/index.php/R%C3%A8gles" target="_blank">Les
+                                            règles</a>
+                                    </li>
+                                    <li>
+                                        <a href="faq_v2.php">FAQ</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://wiki.jdr-delain.net/" target="_blank">Wiki</a>
+                                    </li>
+                                    <li>
+                                        <hr/>
+                                        <a href="classement_v2.php">Classement Joueurs</a>
+                                    </li>
+                                    <li>
+                                        <a href="champions.php" target="_blank">Les champions</a>
+                                    </li>
+                                    <li>
+                                        <a href="statistiques_v2.php">Statistiques</a>
+                                    </li>
 
-                                <hr/>
+                                    <hr/>
 
-                                <li>
-                                    <a href="http://wiki.jdr-delain.net/index.php/L%27equipe" target="_blank">L’équipe
-                                        !!</a>
-                                </li>
-                                <hr/>
-                                <li>
+                                    <li>
+                                        <a href="http://wiki.jdr-delain.net/index.php/L%27equipe" target="_blank">L’équipe
+                                            !!</a>
+                                    </li>
+                                    <hr/>
+                                    <li>
 
-                                    <a href="rss.php">Flux des news <img src="{{ URL_IMAGES }}/rss.gif" border="0"
-                                                                         alt="Flux des news"/></a>
-                                </li>
+                                        <a href="rss.php">Flux des news <img src="{{ URL_IMAGES }}/rss.gif" border="0"
+                                                                             alt="Flux des news"/></a>
+                                    </li>
 
-                                <li>
-                                    <g:plusone href="http://www.jdr-delain.net/"></g:plusone>
-                                </li>
-                                <li>
-                                    <a href="https://plus.google.com/107447277968158531530/?prsrc=3"
-                                       style="text-decoration: none; color: #333;" target="_blank">
-                                        <div style="display: inline-block;"><span
-                                                    style="float: left; font: bold 13px/16px arial,sans-serif; margin-right: 4px;">Suivez nous </span><span
-                                                    style="float: left; font: 13px/16px arial,sans-serif; margin-right: 11px;">sur</span>
-                                            <div style="float: left;"><img
-                                                        src="https://ssl.gstatic.com/images/icons/gplus-16.png"
-                                                        width="16" height="16" style="border: 0;"/></div>
-                                            <div style="clear: both"></div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <hr/>
-                                <li>
+                                    <li>
+                                        <g:plusone href="http://www.jdr-delain.net/"></g:plusone>
+                                    </li>
+                                    <li>
+                                        <a href="https://plus.google.com/107447277968158531530/?prsrc=3"
+                                           style="text-decoration: none; color: #333;" target="_blank">
+                                            <div style="display: inline-block;"><span
+                                                        style="float: left; font: bold 13px/16px arial,sans-serif; margin-right: 4px;">Suivez nous </span><span
+                                                        style="float: left; font: 13px/16px arial,sans-serif; margin-right: 11px;">sur</span>
+                                                <div style="float: left;"><img
+                                                            src="https://ssl.gstatic.com/images/icons/gplus-16.png"
+                                                            width="16" height="16" style="border: 0;"/></div>
+                                                <div style="clear: both"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <hr/>
+                                    <li>
 
-                                    <b>Annuaires de jeux</b>
-                                    <a href="http://www.portaildesjeux.com" target="_blank" title="Jeux"><img
-                                                src="http://www.portaildesjeux.com/images/portaildesjeux.gif" border="0"
-                                                alt="jeux gratuits"/></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.crocastuce.fr" target="_blank"
-                                       title="Les meilleurs jeux gratuits">Jeux gratuits</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.jeux-en-ligne-gratuits.net/fiches/strategie/1_21_0.php"
-                                       title="Jeux de stratégie en ligne">Jeux de stratégie</a>
-                                </li>
-                                <li>
-                                    <a href="http://www.zone-mmorpg.com" title="jeux mmorpg">Jeux MMORPG</a>
-                                </li>
-                                <li>
-                                    <a href='http://www.mesjeuxvirtuels.com' target='_blank'><img
-                                                src='http://www.mesjeuxvirtuels.com/images/btn88x31.gif'/></a>
-                                </li>
-                                <li>
-                            </ul>
+                                        <b>Annuaires de jeux</b>
+                                        <a href="http://www.portaildesjeux.com" target="_blank" title="Jeux"><img
+                                                    src="http://www.portaildesjeux.com/images/portaildesjeux.gif"
+                                                    border="0"
+                                                    alt="jeux gratuits"/></a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.crocastuce.fr" target="_blank"
+                                           title="Les meilleurs jeux gratuits">Jeux gratuits</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.jeux-en-ligne-gratuits.net/fiches/strategie/1_21_0.php"
+                                           title="Jeux de stratégie en ligne">Jeux de stratégie</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.zone-mmorpg.com" title="jeux mmorpg">Jeux MMORPG</a>
+                                    </li>
+                                    <li>
+                                        <a href='http://www.mesjeuxvirtuels.com' target='_blank'><img
+                                                    src='http://www.mesjeuxvirtuels.com/images/btn88x31.gif'/></a>
+                                    </li>
+                                    <li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    {% endblock %}
                 </div>
             </div>
         </div>

@@ -1,0 +1,35 @@
+{% extends 'index.twig' %}
+
+{% block sidebar %}
+    <div class="groupdiv groupdiv_gauche">
+        <div class="titre">{{ PERSO.perso_nom }}</div>
+        <br />
+
+        <div style="text-align:center;">
+            {% if PERSO.isIntangible %}
+                <i>Perso impalpable !</i><br/><br/>
+            {% endif %}
+            <img src="{{ URL_IMAGES }}barrepa_{{ PERSO.perso_pa }}.gif" title="{{ PERSO.perso_pa }} PA "><br/>
+            <img src="{{ URL_IMAGES }}coeur.gif"> <img src="{{ URL_IMAGES }}hp{{ PERSO.barre_hp }}.gif"
+                                                       title="{{ PERSO.perso_pv }}/{{ PERSO.perso_pv_max }}PV"><br/>
+            <img src="{{ URL_IMAGES }}iconexp.gif"> <img src="{{ URL_IMAGES }}xp{{ PERSO.barre_xp }}.gif"
+                                                         title="{{ PERSO.perso_px }} PX, prochain niveau à {px_niveau}"><br/>
+            <img src="{{ URL_IMAGES }}att.gif" title="fourchette de dégats">
+            <b>{{ VARIABLES_MENU.PERSO_DEGATS }}</b>
+            <img src="{{ URL_IMAGES }}def.gif" title="Armure">
+            <b>{{ VARIABLES_MENU.PERSO_ARMURE }}</b>
+            <span style="line-height:100%;"><br/>
+                X : <b>{{ VARIABLES_MENU.PERSO_POS_X }}</b> Y : <b>{{ VARIABLES_MENU.PERSO_POS_Y }}</b><br/>
+                <b><a href="desc_etage.php"><img alt="" src="/images/iconmap.gif"
+                                                 style="height:12px;border:0px;"/>{{ VARIABLES_MENU.PERSO_ETAGE }}</a></b></span>
+            <hr/>
+            {% if VARIABLES_MENU.PASSAGE_NIVEAU %}
+                <div id="passageniveau">
+                    <a href="niveau.php"><b>Passer au niveau supérieur ! </b>(6 PA)</a><br /><hr />
+                </div>
+            {% endif %}
+            <div id="quete">{PERSO_QUETE}</div>
+            <div id="lieu">{PERSO_LIEU}</div>
+        </div>
+    </div>
+{% endblock %}

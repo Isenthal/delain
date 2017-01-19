@@ -1,4 +1,15 @@
 <?php
+
+/**
+ * Cette page sert à alimenter deux menus
+ * L'ancien du jeu qui va bientôt être abadonnée
+ * Pour cela, elle utilise $t->set_var
+ *
+ * Pour le nouveau menu, on construit un tableau
+ * $variables_menu[] qu'on va passer à twig
+ *
+ *
+ */
 include_once "verif_connexion.php";
 $db2 = new base_delain;
 
@@ -10,6 +21,8 @@ $compte->charge($compt_cod);
 $perso = new perso;
 $perso->charge($perso_cod);
 
+$variables_menu = array();
+
 $get_compte = '';
 //if ($db->is_admin_monstre($compt_cod) || $db->is_admin($compt_cod))
 $get_compte = "&compt_cod=$compt_cod";
@@ -17,6 +30,7 @@ $get_compte = "&compt_cod=$compt_cod";
 // Chemin d'accès relatif
 $chemin = $t->root;
 $t->set_var('URL_RELATIVE', $chemin . '/');
+$variables_menu['URL_RELATIVE'] = $chemin . '/';
 
 
 // variables du perso
@@ -169,6 +183,8 @@ $t->set_var('PERSO_PROCHAIN_NIVEAU', $prochain_niveau);
 // affichage dégats et armure
 $t->set_var('PERSO_DEGATS', $det_deg[0] . '-' . $det_deg[1]);
 $t->set_var('PERSO_ARMURE', $perso->armure());
+$variables_menu['PERSO_DEGATS'] = $det_deg[0] . '-' . $det_deg[1];
+$variables_menu['PERSO_ARMURE'] = $perso->armure();
 
 // position
 $var_menu_ppos = new perso_position();
@@ -182,14 +198,20 @@ $t->set_var('PERSO_POS_X', $var_menu_pos->pos_x);
 $t->set_var('PERSO_POS_Y', $var_menu_pos->pos_y);
 $t->set_var('PERSO_ETAGE', $var_menu_etage->etage_libelle);
 
+$variables_menu['PERSO_POS_X'] = $var_menu_pos->pos_x;
+$variables_menu['PERSO_POS_Y'] = $var_menu_pos->pos_y;
+$variables_menu['PERSO_ETAGE'] = $var_menu_etage->etage_libelle;
+
 // passage niveau
 
 if ($px_actuel >= $prochain_niveau)
 {
     $passage_niveau = '<a href="' . $chemin . '/niveau.php"><b>Passer au niveau supérieur ! </b>(6 PA)</a><br><hr />';
+    $variables_menu['PASSAGE_NIVEAU'] = true;
 }
 else
 {
+    $variables_menu['PASSAGE_NIVEAU'] = false;
     $passage_niveau = '';
 }
 $t->set_var('PASSAGE_NIVEAU', $passage_niveau);

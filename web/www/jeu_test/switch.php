@@ -102,6 +102,7 @@ if ($verif_auth)
             'ISAUTH'           => $verif_auth,
             'IS_ADMIN_MONSTRE' => $is_admin_monstre,
             'COMPTE'           => $compte,
+            'PERSO'            => $perso,
             'PERSOS_ACTIFS'    => $persos_actifs,
             'PERSOS_JOUEURS'   => $perso_joueur,
             'PERSOS_QUATRIEME' => $perso_quatrieme,
@@ -115,7 +116,8 @@ if ($verif_auth)
             'NBR_VOTE'         => $nbrVote,
             'NBR_VOTE_MOIS'    => $nbrVoteMois,
             'VOTE_A_VALIDER'   => $VoteAValider,
-            'VOTE_REFUSE'      => $votesRefusee
+            'VOTE_REFUSE'      => $votesRefusee,
+            'VARIABLES_MENU'   => $variables_menu
 
         );
         echo $template->render($options_twig);
