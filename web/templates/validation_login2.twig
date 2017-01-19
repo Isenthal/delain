@@ -41,15 +41,17 @@
                 {% endif %}
 
                 {% if PERSOS_ACTIFS|length == 0 %}
-                    <p>Aucun joueur dirigé.</p>
-                    <a href="cree_perso_compte.php">Créer un nouveau personnage !</a>
+                    <div class="bordiv">
+                        <p>Aucun joueur dirigé.</p>
+                        <a href="cree_perso_compte.php">Créer un nouveau personnage !</a>
+                    </div>
                 {% else %}
                     <div class="container-fluid">
                         <form name="login" method="post" action="validation_login3.php">
                             <input type="hidden" name="perso">
                             <input type="hidden" name="activeTout" value="0">
                         </form>
-                        <div class="bordiv row">
+                        <div class="groupdiv_nopadding row">
                             <div class="titre">Joueurs</div>
 
                             {% for PERSO in PERSOS_JOUEURS %}
@@ -72,7 +74,7 @@
                             </div>
                         </div>
                         {% if FAMILIERS|length > 0 %}
-                            <div class="bordiv row">
+                            <div class="groupdiv_nopadding row">
                                 <div class="titre">Familiers</div>
                                 {% for PERSO in FAMILIERS %}
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
@@ -82,7 +84,7 @@
                             </div>
                         {% endif %}
                         {% if OK_4 %}
-                            <div class="bordiv row">
+                            <div class="groupdiv_nopadding row">
                                 <div class="titre">Quatrième</div>
 
                                 {% for PERSO in PERSOS_QUATRIEME %}
@@ -94,7 +96,7 @@
                             </div>
                         {% endif %}
                         {% if PERSOS_SITTES|length > 0 %}
-                            <div class="bordiv row">
+                            <div class="groupdiv_nopadding row">
                                 <div class="titre">Persos en sitting</div>
                                 {% for PERSO in PERSOS_SITTES %}
                                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">

@@ -117,6 +117,10 @@ class compte
         return $result['fin_hibernation'];
     }
 
+    /**
+     * @param $perso_cod
+     * @return bool
+     */
     function autoriseJouePerso($perso_cod)
     {
         // cas particulier, les admins ont tous les droits
@@ -130,7 +134,12 @@ class compte
             $perso = new perso;
             if($perso->charge($perso_cod))
             {
+
                 if($perso->perso_type_perso == 2)
+                {
+                    return true;
+                }
+                if($perso->perso_pnj == 1)
                 {
                     return true;
                 }

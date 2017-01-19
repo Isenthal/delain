@@ -126,11 +126,13 @@ if ($verif_auth)
     if ($type_perso == 'joueur')
     {
         // on calcule la dernière news
-        $news          = new news();
-        $tab_last_news = $news->getNews(0);
-        $last_news     = $tab_last_news[0];
-        $news_cod      = $last_news->news_cod;
-        $ok_4 = $compte->autorise_4e_global();
+        $news                     = new news();
+        $tab_last_news            = $news->getNews(0);
+        $last_news                = $tab_last_news[0];
+        $news_cod                 = $last_news->news_cod;
+        $ok_4                     = $compte->autorise_4e_global();
+        $attribue_nouveau_monstre = false;
+        $affiche_news             = array();
         if ($compte->compt_der_news < $news_cod)
         {
             $affiche_news           = $news->getNewsSup($compte->compt_der_news);
@@ -139,6 +141,7 @@ if ($verif_auth)
         }
 
         // Récupération du numéro du monstre actuel, s'il existe.
+        $monstre_cod    = 0;
         $monstre_joueur = $compte->getMonstreJoueur();
         if ($monstre_joueur !== false)
         {
@@ -149,7 +152,7 @@ if ($verif_auth)
         $nv_monstre = $compte->attribue_monstre_4e_perso();
         if ($nv_monstre != -1)
         {
-            $attribue_nouveau_monstre = false;
+
             // on a un monstre_cod > 0, donc il y avait un monstre, mais il a été remplacé
             // puisque nv_monstre == true
             if ($monstre_cod > 0)
@@ -205,6 +208,10 @@ if ($verif_auth)
 
         $type_4        = $compte->compt_type_quatrieme;
         $premier_perso = $persos_actifs[0]->perso_cod;
+
+        $perso_quatrieme = array();
+        $perso_joueur    = array();
+        $familiers       = array();
         foreach ($persos_actifs as $perso_actif)
         {
             // on prend toutes les infos nécessaires du perso
@@ -227,18 +234,21 @@ if ($verif_auth)
         }
         // on regarde s'il faut afficher des cases vides
         $cases_vides = $nb_perso_max - count($perso_joueur);
-        for($i = 0;$i < $cases_vides; $i++)
+        for ($i = 0; $i < $cases_vides; $i++)
         {
-            $perso_vide = new perso;
+            $perso_vide             = new perso;
             $perso_vide->perso_vide = true;
-            $perso_joueur[] = $perso_vide;
+            $perso_joueur[]         = $perso_vide;
         }
 
         // on regarde s'il y a des comptes sittés
         $persos_sittes = $compte->getPersosSittes();
-        foreach ($persos_sittes as $perso_sitte)
+        if (count($persos_sittes) != 0)
         {
-            $perso_sitte->prepare_for_tab_switch();
+            foreach ($persos_sittes as $perso_sitte)
+            {
+                $perso_sitte->prepare_for_tab_switch();
+            }
         }
 
 
@@ -262,7 +272,6 @@ $options_twig = array(
     'PERSOS_ACTIFS'            => $persos_actifs,
     'PERSOS_JOUEURS'           => $perso_joueur,
     'PERSOS_QUATRIEME'         => $perso_quatrieme,
-    'PERSO_PAR_LIGNE'          => $nb_perso_ligne,
     'NB_PERSO_MAX'             => $nb_perso_max,
     'ATTRIBUE_NOUVEAU_MONSTRE' => $attribue_nouveau_monstre,
     'OK_4'                     => $ok_4,

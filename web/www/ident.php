@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$verif_auth = false;
 
 //
 // fonction d'affichage du formulaire de login si pas authentifié
@@ -65,7 +66,6 @@ if (!$myAuth->verif_auth)
             // est-ce qu'on change de perso ?
             if (isset($change_perso))
             {
-                // TODO, quelques vérifications à faire quand même...
                 if ($compte->autoriseJouePerso($change_perso))
                 {
                     $compte->compt_der_perso_cod = $change_perso;
@@ -93,11 +93,11 @@ if (!$myAuth->verif_auth)
                 $type_perso = 'admin';
                 $is_admin   = true;
             }
-            if (!$perso->getByComptDerPerso($compte->compt_cod))
+            /*if (!$perso->getByComptDerPerso($compte->compt_cod))
             {
                 echo 'Authentification échouée, erreur sur le chargement de perso';
                 $verif_auth = false;
-            }
+            }*/
 
             $perso_nom = $perso->perso_nom;
             $perso_cod = $perso->perso_cod;
@@ -164,22 +164,13 @@ else
         $myAuth->perso_cod = $perso_cod;
         $myAuth->compt_cod = $compt_cod;
     }
-    else
-    {
-        $verif_auth = false;
-    }
-
 }
-if($verif_auth)
+/*if($verif_auth)
 {
     // on vérifie qu'on a bien accès au bon perso
     if (!$compte->autoriseJouePerso($perso->perso_cod))
     {
         die('Accès interdit à ce perso');
     }
-}
-
-
-
-
+}*/
 montre_formulaire_connexion($verif_auth);
