@@ -27,8 +27,7 @@ EOF
 # On créé une table temp qui va prendre
 # la liste des monstres à traiter
 $psql -U webdelain -d delain -q -t << EOF >> /dev/null
-create table IF NOT EXISTS temp_monstres
-(code_monstre integer CONSTRAINT firstkey PRIMARY KEY);
+
 # au cas où...
 truncate table temp_monstres;
 # on la remplit
