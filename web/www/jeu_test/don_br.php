@@ -28,7 +28,7 @@ ob_start();
                 <td>Ainsi que la somme à donner (max <?php echo $perso->perso_po; ?> brouzoufs)
                     :
                 </td>
-                <td><input type="text" name="qte" value="0"></td>
+                <td><input type="text" name="qte" value="<?php echo $perso->perso_po; ?>"></td>
             </tr>
         </table>
         <input type="submit" class="test centrer" value="Faire le don !">
