@@ -611,14 +611,13 @@ if ($erreur == 0)
         <div id="intro" class="tableau2">
             <p><u>Information aux gérants</u></p>
             <p>Voici l'interface de gestion de votre échoppe. Vous y trouverez différents menus. <br>Voici une documentation de la guilde : https://docs.google.com/document/d/1OBpzap1AI5gIXOzOIEAXADaXRY8yYJo4MdWEEBIrniM/edit?usp=sharing</p><br>
-            <p><strong>26/02/2006</strong> Nouveau stock</p>
-            <p><strong>09/08/2006</strong> Prêt pour les permiers beta-tests</p>
-            <p><strong>31/01/2008</strong> Ajout de la fonctionnalité pour changer la description et le nom du magasin
-            </p>
-            <p><strong>28/12/2009</strong> De nombreux changements ont été apportées. Par exemple, la limitation des approvisionnements en fonction de l'échoppe. Certains articles ne
-                pourront plus être approvisionnés librement. Adressez-vous à votre Maitre Marchand préféré.
-            <p><strong>01/02/2019</strong> Divers modifications pour faire fonctionner les magasins runiques.</p>
+            <p><strong>03/12/2024</strong> Réparation du bug de méta-guildage et de ré-affectation des magasins.</p><br>
 	    <p><strong>13/06/2024</strong> Documentation des menus & mise en forme de la description.</p><br>
+	    <p><strong>01/02/2019</strong> Divers modifications pour faire fonctionner les magasins runiques.</p>
+	    <p><strong>28/12/2009</strong> De nombreux changements ont été apportées. Par exemple, la limitation des approvisionnements en fonction de l'échoppe. Certains articles ne pourront plus être approvisionnés librement. Adressez-vous à votre Maitre Marchand préféré.
+            <p><strong>31/01/2008</strong> Ajout de la fonctionnalité pour changer la description et le nom du magasin</p>
+	    <p><strong>09/08/2006</strong> Prêt pour les permiers beta-tests</p>
+            <p><strong>26/02/2006</strong> Nouveau stock</p>
             <b>Clients présents dans l’échoppe:</b>
             <?php
             $liste_clients = "";
